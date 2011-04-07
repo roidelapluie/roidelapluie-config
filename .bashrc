@@ -20,22 +20,32 @@ pwd_real() {
 	fi
 }
 
+root() {
+	ssh root@$1 -t bash --rcfile /home/roidelapluie/roidelapluie-config/.bashrc
+}
+
+update_bashrc() {
+	cd /home/roidelapluie/roidelapluie-config/
+	git pull
+	cd -
+}
+
 # Prompt
 export PROMPT_COMMAND="
 if [ \$? -eq 0 ];
-    then PROMPT_COLOR=32; 
-    else PROMPT_COLOR=31; 
+    then PROMPT_COLOR='0;32'; 
+    else PROMPT_COLOR='0;31'; 
 fi
 "
 
 if [ $UID -eq 0 ]; then
-	PROMPT_COLOR2=41
+	PROMPT_COLOR2="1;41"
 else
-	PROMPT_COLOR2=44
+	PROMPT_COLOR2="1;44"
 fi
 
-PS1="\[\e[1;${PROMPT_COLOR2}m\] \h \[\e[0m\]"
-PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\n\[\e[0;\${PROMPT_COLOR}m\]>\[\e[0m\] "
+PS1="\[\e[${PROMPT_COLOR2}m\] \h \[\e[0m\]"
+PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\n\[\e[\${PROMPT_COLOR}m\]\#>\[\e[0m\] "
 
 # Aliases
 alias srv01='ssh -i ~/.vm/id_rsa root@srv01'
