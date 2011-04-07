@@ -3,7 +3,7 @@ if [[ $- != *i* ]] ; then
     return
 fi
 
-# Prevent usage of su indtead of su -
+# Prevent usage of su instead of su -
 if [ "$(tr "\0" " " < /proc/$PPID/cmdline)" == "su " ]; then 
 	export TMOUT=10
 	echo -e "\e[1;41mPlease use \e[4msu -\e[0m"
