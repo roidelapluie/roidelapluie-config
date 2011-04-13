@@ -20,6 +20,12 @@ pwd_real() {
 	fi
 }
 
+show_real_pwd() {
+	if [ "$(pwd)" != "$(pwd -P)" ]; then
+		echo " ($(readlink $PWD))"
+	fi
+}
+
 root() {
 	ssh root@$1 -t bash --rcfile /home/roidelapluie/roidelapluie-config/.bashrc
 }
@@ -45,7 +51,7 @@ else
 fi
 
 PS1="\[\e[${PROMPT_COLOR2}m\] \h \[\e[0m\]"
-PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\n\[\e[\${PROMPT_COLOR}m\]\#>\[\e[0m\] "
+PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\$(show_real_pwd)\n\[\e[\${PROMPT_COLOR}m\]\#>\[\e[0m\] "
 
 # Aliases
 alias srv01='ssh -i ~/.vm/id_rsa root@srv01'
@@ -53,7 +59,7 @@ alias srv01='ssh -i ~/.vm/id_rsa root@srv01'
 # vars
 export HISTSIZE=10000
 export CAVE_RESOLVE_OPTIONS="--recommendations display"
-
+export INPUTRC="~/.inputrc.roidelapluie"
 
 # Options
 shopt -s no_empty_cmd_completion
