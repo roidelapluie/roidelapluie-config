@@ -55,6 +55,8 @@ PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\$(show_real_pwd)\n\[\e[\${PROMPT_COLOR}m\]
 
 # Aliases
 alias srv01='ssh -i ~/.vm/id_rsa root@srv01'
+alias mp="mplayer -vf scale=1366:768" # because nouVeau has no xv support
+
 
 # vars
 export HISTSIZE=10000
