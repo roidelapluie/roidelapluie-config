@@ -1,19 +1,5 @@
-# /etc/inputrc: initialization file for readline
-#
-# For more information on how this file works, please see the
-# INITIALIZATION FILE section of the readline(3) man page
-#
-# Quick dirty little note:
-#  To get the key sequence for binding, you can abuse bash.
-#  While running bash, hit CTRL+V, and then type the key sequence.
-#  So, typing 'ALT + left arrow' in Konsole gets you back:
-#    ^[[1;3D
-#  The readline entry to make this skip back a word will then be:
-#    "\e[1;3D" backward-word
-#
-
 # do not bell on tab-completion
-#set bell-style none
+set bell-style none
 
 set meta-flag on
 set input-meta on
@@ -37,16 +23,9 @@ $if mode=emacs
 # allow the use of the Delete/Insert keys
 "\e[3~": delete-char
 "\e[2~": quoted-insert
-# # mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
-
-# gnome-terminal (escape + arrow key)
-# gnome-terminal (control + arrow key)
 # konsole / xterm / rxvt (escape + arrow key)
 "\e\e[C": forward-word
 "\e\e[D": backward-word
-# konsole (alt + arrow key)
-"\e[1;3C": forward-word
-"\e[1;3D": backward-word
 # konsole (control + arrow key)
 # aterm / eterm (control + arrow key)
 
