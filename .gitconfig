@@ -1,0 +1,6 @@
+[user]
+	name = Julien Pivotto
+	email = roidelapluie@esquimaux.be
+[alias]
+	co = checkout
+	ci = commit
