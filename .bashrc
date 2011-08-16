@@ -56,6 +56,8 @@ PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\$(show_real_pwd)\n\[\e[\${PROMPT_COLOR}m\]
 # Aliases
 alias gp='git push'
 alias gpl='git pull --rebase'
+alias tg='tig status'
+
 # vars
 export HISTSIZE=10000
 export CAVE_RESOLVE_OPTIONS="--recommendations display"
