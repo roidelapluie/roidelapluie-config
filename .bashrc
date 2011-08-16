@@ -54,10 +54,8 @@ PS1="\[\e[${PROMPT_COLOR2}m\] \h \[\e[0m\]"
 PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\$(show_real_pwd)\n\[\e[\${PROMPT_COLOR}m\]\#>\[\e[0m\] "
 
 # Aliases
-alias srv01='ssh -i ~/.vm/id_rsa root@srv01'
-alias mp="mplayer -vf scale=1366:768" # because nouVeau has no xv support
-
-
+alias gp='git push'
+alias gpl='git pull --rebase'
 # vars
 export HISTSIZE=10000
 export CAVE_RESOLVE_OPTIONS="--recommendations display"
