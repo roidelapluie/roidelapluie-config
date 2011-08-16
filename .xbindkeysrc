@@ -1,0 +1,12 @@
+"amixer set Master toggle"
+   XF86AudioMute
+
+"amixer set Master 5%+"
+   XF86AudioRaiseVolume
+
+"uzbl-tabbed"
+   Mod4 + N
+
+"amixer set Master 5%-"
+   XF86AudioLowerVolume
+
