@@ -51,12 +51,13 @@ else
 fi
 
 PS1="\[\e[${PROMPT_COLOR2}m\] \h \[\e[0m\]"
-PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\$(show_real_pwd)\n\[\e[\${PROMPT_COLOR}m\]\#>\[\e[0m\] "
+PS1="$PS1 \[\$(pwd_real)\]\w\[\e[0m\]\$(show_real_pwd)\$(show_git_branch)\$ERR\n\[\e[\${PROMPT_COLOR}m\]\#>\[\e[0m\] "
 
 # Aliases
 alias gp='git push'
 alias gpl='git pull --rebase'
 alias tg='tig status'
+alias speedtest="wget --quiet speedtest.edpnet.be/speedtest4.php -O - | grep -o 'Your BandWidth [0-9][^)]*)' | cat"
 
 # vars
 export HISTSIZE=10000
