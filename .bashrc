@@ -24,7 +24,7 @@ show_git_branch() {
 	branch=$(git branch 2>/dev/null | grep '^*' | cut -d' ' -f 2-)
 	if [ -n "$branch" ]; then
 		echo -en ' \e[1;30;47m '$branch' \e[0m '
-		[ "$(git status -s|wc -l)" -gt 0 ] && echo -e '\e[1;40;37m '$(git status -s| awk '{print $1}'|sort|uniq -c|xargs)' \e[0m '
+		[ "$(git status -s|wc -l)" -gt 0 ] && echo -e '\e[1;40;37m '$(git status -s| awk '{print $1}'|sort|uniq -c|xargs -I% echo %)' \e[0m '
 	fi
 }
 show_real_pwd() {
